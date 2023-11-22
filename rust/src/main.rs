@@ -230,7 +230,7 @@ fn homework(exercises: &[Exercise], verbose: bool, homework_number: String) -> n
 
     // watch for changes anywhere in this folder (TODO check subdir check)    
     watcher.watch(Path::new("./homeworks"), RecursiveMode::Recursive)?;  // I think watcher looks for file changes
-    clear_screen(); 
+    //clear_screen(); 
 
     let mut homework_path: String = "./homeworks/homework".to_owned();        
     homework_path.push_str(&homework_number);
@@ -298,7 +298,7 @@ fn homework(exercises: &[Exercise], verbose: bool, homework_number: String) -> n
                             .skip_while(|e| !filepath.ends_with(&e.path))
                             // .filter(|e| filepath.ends_with(&e.path))
                             .chain(exercises_filtered.iter().filter(|e| !e.looks_done() && !filepath.ends_with(&e.path)));
-                        clear_screen();
+                        //clear_screen();
 
                         match verify(pending_exercises, verbose) {
                             Ok(_) => return Ok(WatchStatus::Finished),
